@@ -20,7 +20,7 @@ public class BuildingsGrid : MonoBehaviour
     {
         if (_flyingBuilding != null)
         {
-            Destroy(_flyingBuilding);
+            Destroy(_flyingBuilding.gameObject);
         }
 
         _flyingBuilding = Instantiate(buildindPrefab);
