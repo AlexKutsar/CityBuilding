@@ -45,15 +45,40 @@ public class BuildingsGrid : MonoBehaviour
                 if (x < 0 || x > GridSize.x - _flyingBuilding.Size.x) available = false;
                 if (y < 0 || y > GridSize.y - _flyingBuilding.Size.y) available = false;
 
+                if (available && IsPlaceTaken(x, y)) available = false;
+
                 _flyingBuilding.transform.position = new Vector3(x, 0, y);
                 _flyingBuilding.SetTransparent(available);
 
                 if (available && Input.GetMouseButtonDown(0))
                 {
-                    _flyingBuilding.SetNormal();
-                    _flyingBuilding = null;
+                    PlaceFlyingBuilding(x, y);
                 }
             }
         }
+    }
+
+    private bool IsPlaceTaken(int placeX, int placeY)
+    {
+        for (int x = 0; x < _flyingBuilding.Size.x; x++)
+        {
+            for (int y = 0; y < _flyingBuilding.Size.y; y++)
+            {
+                if (_grid[placeX + x, placeY + y] != null) return true;
+            }
+        }
+        return false;
+    }
+    public void PlaceFlyingBuilding(int placeX, int placeY)
+    {
+        for(int x = 0; x < _flyingBuilding.Size.x; x++)
+        {
+            for (int y = 0; y < _flyingBuilding.Size.y; y++)
+            {
+                _grid[placeX + x, placeY + y] = _flyingBuilding;
+            }
+        }
+        _flyingBuilding.SetNormal();
+        _flyingBuilding = null;
     }
 }
