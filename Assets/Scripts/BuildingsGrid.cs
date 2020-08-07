@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildingsGrid : MonoBehaviour
 {
-    [SerializeField] private Vector2Int _sizeGrid = new Vector2Int(10, 10);
+    public Vector2Int GridSize = new Vector2Int(10, 10);
 
     private Buildind[,] _grid;
     private Buildind _flyingBuilding = null;
@@ -12,7 +12,7 @@ public class BuildingsGrid : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        _grid = new Buildind[_sizeGrid.x, _sizeGrid.y];
+        _grid = new Buildind[GridSize.x, GridSize.y];
         _camera = Camera.main;
     }
 
@@ -41,10 +41,16 @@ public class BuildingsGrid : MonoBehaviour
                 int x = Mathf.RoundToInt(worldPosition.x);
                 int y = Mathf.RoundToInt(worldPosition.z);
 
-                _flyingBuilding.transform.position = new Vector3(x, 0, y);
+                bool available = true;
+                if (x < 0 || x > GridSize.x - _flyingBuilding.Size.x) available = false;
+                if (y < 0 || y > GridSize.y - _flyingBuilding.Size.y) available = false;
 
-                if(Input.GetMouseButtonDown(0))
+                _flyingBuilding.transform.position = new Vector3(x, 0, y);
+                _flyingBuilding.SetTransparent(available);
+
+                if (available && Input.GetMouseButtonDown(0))
                 {
+                    _flyingBuilding.SetNormal();
                     _flyingBuilding = null;
                 }
             }

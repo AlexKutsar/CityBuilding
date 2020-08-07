@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class Buildind : MonoBehaviour
 {
-    [SerializeField] private Vector2Int _size = Vector2Int.one;
+    public Vector2Int Size = Vector2Int.one;
     [SerializeField] private Color _colorGizmos = Color.green;
+    [SerializeField] private Renderer _mainRenderer = null;
+
+    [SerializeField] private Color _normalColor;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        _normalColor = _mainRenderer.material.color;
     }
-
-    private void OnDrawGizmosSelected()
+    public void SetTransparent(bool available)
     {
-        for(int x = 0; x < _size.x; x++)
+        if (available)
         {
-            for (int y = 0; y < _size.y; y++)
+            _mainRenderer.material.color = Color.green;
+        }
+        else
+            _mainRenderer.material.color = Color.red;
+    }
+    public void SetNormal()
+    {
+        _mainRenderer.material.color = _normalColor;
+    }
+
+    private void OnDrawGizmos()
+    {
+        for(int x = 0; x < Size.x; x++)
+        {
+            for (int y = 0; y < Size.y; y++)
             {
                 Gizmos.color = _colorGizmos;
                 Gizmos.DrawCube(transform.position + new Vector3(x, 0, y), new Vector3(1, 0.1f, 1));
