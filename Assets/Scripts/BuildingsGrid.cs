@@ -6,7 +6,6 @@ public class BuildingsGrid : MonoBehaviour
 {
     public Vector2Int GridSize = new Vector2Int(10, 10);
 
-    [SerializeField] private Resources _resources = null;
 
     private Buildind[,] _grid;
     private Buildind _flyingBuilding = null;
@@ -54,12 +53,13 @@ public class BuildingsGrid : MonoBehaviour
 
                 if (available && Input.GetMouseButtonDown(0))
                 {
-                    ResourcesData needRecource = _resources.resourcesData[_resources.FindIndexResourceInList(ResourceType.Gold)];
+                    PlaceFlyingBuilding(x, y);
+                    /*ResourcesData needRecource = _resources.resourcesData[_resources.FindIndexResourceInList(ResourceType.Gold)];
                     if(needRecource.currentValue >= 10)
                     {
                         PlaceFlyingBuilding(x, y);
                         needRecource.ChangeAmountResource.Invoke(ResourceType.Gold, -10);
-                    }
+                    }*/
                 }
             }
         }

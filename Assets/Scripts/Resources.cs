@@ -10,7 +10,7 @@ public enum ResourceType
 }
 
 [Serializable]
-public struct ResourcesData
+public class ResourcesData
 {
     public ResourceType resourceType;
     public int currentValue;
@@ -25,13 +25,12 @@ public class Resources : MonoBehaviour
     public void СhangeCurrentResourсe(ResourceType resourceType, int value)
     {
         int indexResource = FindIndexResourceInList(resourceType);
-        int sum = resourcesData[indexResource].currentValue + value;
         int maxSum = resourcesData[indexResource].maxValue;
-        var resourceData = resourcesData[indexResource];
-        if (sum >= maxSum) resourceData.currentValue = resourcesData[indexResource].maxValue;
-        else if (sum <= 0) resourceData.currentValue = 0;
-        else resourceData.currentValue += value;
-        resourcesData[indexResource] = resourceData;
+        int amountCurrentResource = resourcesData[indexResource].currentValue;
+        int sum = amountCurrentResource + value;
+        if (sum >= maxSum) amountCurrentResource = maxSum;
+        else if (sum <= 0) amountCurrentResource = 0;
+        else amountCurrentResource += value;
     }
 
     public int FindIndexResourceInList(ResourceType resourceType)
@@ -53,9 +52,7 @@ public class Resources : MonoBehaviour
     {
         for (int i = 0; i < resourcesData.Count; i++)
         {
-            var resourceData = resourcesData[i];
-            resourceData.ChangeAmountResource += СhangeCurrentResourсe;
-            resourcesData[i] = resourceData;
+            resourcesData[i].ChangeAmountResource += СhangeCurrentResourсe;
         }
     }
 

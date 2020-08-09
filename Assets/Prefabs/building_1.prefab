@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3955305317981060891}
   - component: {fileID: 3955305317981060890}
   m_Layer: 0
-  m_Name: building_1 1
+  m_Name: building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   Size: {x: 1, y: 1}
   _colorGizmos: {r: 0, g: 1, b: 0, a: 1}
   _mainRenderer: {fileID: 3955305319167184404}
+  _normalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3955305319167184409
 GameObject:
   m_ObjectHideFlags: 0
