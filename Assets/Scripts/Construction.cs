@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class Construction : MonoBehaviour
 {
+    //public Building BuildingForConstruction = null;
+
     [SerializeField] private Resources _resources = null;
+
+    private int _amountNeedResource = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +23,39 @@ public class Construction : MonoBehaviour
         
     }
 
-    public void BuyBuilding()
+    public bool BuyBuilding(Building building)
     {
-        ResourcesData needRecource = _resources.resourcesData[_resources.FindIndexResourceInList(ResourceType.Gold)];
-        if (needRecource.currentValue >= 10)
+        if (CheckAllNeedResourse(building))
         {
-            needRecource.ChangeAmountResource.Invoke(ResourceType.Gold, -10);
+            TakeAwayResources(building);
+            return true;
+        }
+        else return false;
+    }
+
+    private bool CheckAllNeedResourse(Building building)
+    {
+        _amountNeedResource = building.LevelsData[building.CurrentLevel].resourcesForConstruction.Count;
+        for (int i = 0; i < _amountNeedResource; i++)
+        {
+            ResourceForConstruction resource = building.LevelsData[building.CurrentLevel].resourcesForConstruction[i];
+            if (!CheckAmountResource(resource.ResourceType, resource.CostConstruction)) return false;
+        }
+        return true;
+    }
+    private bool CheckAmountResource(ResourceType resourceType, int value)
+    {
+        int amountHaveRecource = _resources.resourcesData[_resources.FindIndexResourceInList(resourceType)].currentValue;
+        return (amountHaveRecource >= value);
+    }
+
+    private void TakeAwayResources(Building building)
+    {
+        for (int i = 0; i < _amountNeedResource; i++)
+        {
+            ResourceForConstruction resource = building.LevelsData[building.CurrentLevel].resourcesForConstruction[i];
+            ResourcesData needRecource = _resources.resourcesData[_resources.FindIndexResourceInList(resource.ResourceType)];
+            needRecource.ChangeAmountResource.Invoke(resource.ResourceType, -resource.CostConstruction);
         }
     }
 }

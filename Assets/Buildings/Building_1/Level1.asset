@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410900838feb5314f96a7578eda3d1d2, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  resourcesForConstruction: []
-  TimeConstruction: 0
+  resourcesForConstruction:
+  - ResourceType: 0
+    CostConstruction: 10
+    CostDelete: 4
+  - ResourceType: 1
+    CostConstruction: 20
+    CostDelete: 8
+  TimeConstruction: 5

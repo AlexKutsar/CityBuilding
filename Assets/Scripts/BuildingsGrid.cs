@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class BuildingsGrid : MonoBehaviour
 {
+    
     public Vector2Int GridSize = new Vector2Int(10, 10);
 
+    [SerializeField] private Construction _construction;
 
-    private Buildind[,] _grid;
-    private Buildind _flyingBuilding = null;
+    private BuildindGizmos[,] _grid;
+    private BuildindGizmos _flyingBuilding = null;
     private Camera _camera;
     // Start is called before the first frame update
     void Awake()
     {
-        _grid = new Buildind[GridSize.x, GridSize.y];
+        _grid = new BuildindGizmos[GridSize.x, GridSize.y];
         _camera = Camera.main;
+        if (_construction == null) _construction = GetComponent<Construction>();
     }
 
-    public void StartPlacingBuilding(Buildind buildindPrefab)
+    public void StartPlacingBuilding(BuildindGizmos buildindPrefab)
     {
         if (_flyingBuilding != null)
         {
@@ -53,13 +56,11 @@ public class BuildingsGrid : MonoBehaviour
 
                 if (available && Input.GetMouseButtonDown(0))
                 {
-                    PlaceFlyingBuilding(x, y);
-                    /*ResourcesData needRecource = _resources.resourcesData[_resources.FindIndexResourceInList(ResourceType.Gold)];
-                    if(needRecource.currentValue >= 10)
+                    var building = _flyingBuilding.gameObject.GetComponent<Building>();
+                    if (_construction.BuyBuilding(building))
                     {
                         PlaceFlyingBuilding(x, y);
-                        needRecource.ChangeAmountResource.Invoke(ResourceType.Gold, -10);
-                    }*/
+                    }
                 }
             }
         }

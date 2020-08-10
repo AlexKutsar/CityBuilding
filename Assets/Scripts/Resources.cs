@@ -31,6 +31,7 @@ public class Resources : MonoBehaviour
         if (sum >= maxSum) amountCurrentResource = maxSum;
         else if (sum <= 0) amountCurrentResource = 0;
         else amountCurrentResource += value;
+        resourcesData[indexResource].currentValue = amountCurrentResource;
     }
 
     public int FindIndexResourceInList(ResourceType resourceType)

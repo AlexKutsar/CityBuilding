@@ -369,7 +369,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 3259527890544238644, guid: ba7d19783f9895249993998a5d8d4bcd,
             type: 3}
-          m_ObjectArgumentAssemblyTypeName: Buildind, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: BuildindGizmos, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -443,6 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridSize: {x: 10, y: 10}
+  _construction: {fileID: 535928015}
 --- !u!4 &535928013
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +470,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8064083ae9df44eaf55a8da68da000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcesData: []
+  resourcesData:
+  - resourceType: 0
+    currentValue: 20
+    maxValue: 30
+  - resourceType: 1
+    currentValue: 90
+    maxValue: 100
+  - resourceType: 2
+    currentValue: 90
+    maxValue: 100
 --- !u!114 &535928015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,7 +1025,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 3955305317981060890, guid: 917e204a8397ef446a16d501db51cbb2,
             type: 3}
-          m_ObjectArgumentAssemblyTypeName: Buildind, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: BuildindGizmos, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
