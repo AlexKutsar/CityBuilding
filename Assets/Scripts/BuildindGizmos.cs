@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Buildind : MonoBehaviour
+public class BuildindGizmos : MonoBehaviour
 {
     public Vector2Int Size = Vector2Int.one;
     [SerializeField] private Color _colorGizmos = Color.green;

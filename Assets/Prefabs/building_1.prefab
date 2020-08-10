@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3955305317981060891}
   - component: {fileID: 3955305317981060890}
+  - component: {fileID: 5297509824920210198}
   m_Layer: 0
   m_Name: building_1
   m_TagString: Untagged
@@ -48,6 +49,24 @@ MonoBehaviour:
   _colorGizmos: {r: 0, g: 1, b: 0, a: 1}
   _mainRenderer: {fileID: 3955305319167184404}
   _normalColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &5297509824920210198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955305317981060893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2958bfe34f68194296284b4b6cf5e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsResourceBuilding: 1
+  LevelsData:
+  - {fileID: 11400000, guid: 6bd1b72cc2f39104ea2568d77864f68b, type: 2}
+  - {fileID: 11400000, guid: 94c7ff6cdc92f3e4d9b20fd12e809b75, type: 2}
+  - {fileID: 11400000, guid: 9701d4c94bf81f44f90c98fef39253aa, type: 2}
+  - {fileID: 11400000, guid: 607cb9f6121eb4a4bb9f3724f1dd1d1e, type: 2}
 --- !u!1 &3955305319167184409
 GameObject:
   m_ObjectHideFlags: 0

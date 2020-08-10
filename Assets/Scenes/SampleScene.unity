@@ -421,6 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 535928013}
   - component: {fileID: 535928012}
+  - component: {fileID: 535928015}
   - component: {fileID: 535928014}
   m_Layer: 0
   m_Name: GameManager
@@ -442,7 +443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridSize: {x: 10, y: 10}
-  _resources: {fileID: 535928014}
 --- !u!4 &535928013
 Transform:
   m_ObjectHideFlags: 0
@@ -469,16 +469,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8064083ae9df44eaf55a8da68da000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcesData:
-  - resourceType: 0
-    currentValue: 10
-    maxValue: 100
-  - resourceType: 1
-    currentValue: 10
-    maxValue: 100
-  - resourceType: 2
-    currentValue: 10
-    maxValue: 100
+  resourcesData: []
+--- !u!114 &535928015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535928011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c28d7fd79d0264e977a7d2f9abdccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resources: {fileID: 535928014}
 --- !u!1 &621046298
 GameObject:
   m_ObjectHideFlags: 0
