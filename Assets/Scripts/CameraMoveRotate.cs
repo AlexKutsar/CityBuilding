@@ -47,7 +47,7 @@ public class CameraMoveRotate : MonoBehaviour
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
             //Quaternion.AngleAxis(mouseX* 100, Vector3.up);
-            transform.Rotate(-mouseY * _speedRotation * Time.deltaTime, -mouseX * _speedRotation * Time.deltaTime, 0);
+            transform.Rotate(-mouseY * _speedRotation * Time.deltaTime, mouseX * _speedRotation * Time.deltaTime, 0);
             Debug.Log(mouseX * _speedRotation * Time.deltaTime);
         }
     }
