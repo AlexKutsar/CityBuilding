@@ -53,16 +53,18 @@ public class BuildingsGrid : MonoBehaviour
 
                 _flyingBuilding.transform.position = new Vector3(x, 0, y);
                 _flyingBuilding.SetTransparent(available);
-
-                if (available && Input.GetMouseButtonDown(0))
+                Building building = null;
+                var isBuilding = _flyingBuilding.gameObject.TryGetComponent<Building>(out building);
+                if (isBuilding && available && Input.GetMouseButtonDown(0))
                 {
-                    var building = _flyingBuilding.gameObject.GetComponent<Building>();
                     if (_construction.BuyBuilding(building))
                     {
                         PlaceFlyingBuilding(x, y);
+                        /// сделать бесконечную покупку _flyingBuilding = lastPrefab;
                     }
                 }
             }
+
         }
     }
 

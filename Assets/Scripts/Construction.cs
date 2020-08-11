@@ -32,7 +32,10 @@ public class Construction : MonoBehaviour
         }
         else return false;
     }
+    /*public BuyRoad(Road road)
+    {
 
+    }*/
     private bool CheckAllNeedResourse(Building building)
     {
         _amountNeedResource = building.LevelsData[building.CurrentLevel].resourcesForConstruction.Count;
