@@ -87,6 +87,18 @@ public class BuildingsGrid : MonoBehaviour
             }
         }
         _flyingBuilding.SetNormal();
+        _flyingBuilding.positionOnGrid = new Vector2Int(placeX, placeY);
         _flyingBuilding = null;
+    }
+
+    public void RemoveObjectFromGrid(Vector2Int position, Vector2Int sizeObject)
+    {
+        for (int x = 0; x < sizeObject.x; x++)
+        {
+            for (int y = 0; y < sizeObject.y; y++)
+            {
+                _grid[position.x + x, position.y + y] = null;
+            }
+        }
     }
 }

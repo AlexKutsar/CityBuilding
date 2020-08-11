@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuildindGizmos : MonoBehaviour
 {
+    public Vector2Int positionOnGrid = Vector2Int.one;
     public Vector2Int Size = Vector2Int.one;
     [SerializeField] private Color _colorGizmos = Color.green;
     [SerializeField] private Renderer _mainRenderer = null;
