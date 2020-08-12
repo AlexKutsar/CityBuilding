@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildingsGrid : MonoBehaviour
 {
@@ -63,11 +64,15 @@ public class BuildingsGrid : MonoBehaviour
                 _flyingBuilding.SetTransparent(available);
                 if (available && Input.GetMouseButtonDown(0))
                 {
-                    Building building = null;
-                    var isBuilding = _flyingBuilding.gameObject.TryGetComponent<Building>(out building);
-                    if (_construction.BuyBuilding(building))
+                    if (EventSystem.current.IsPointerOverGameObject()) return;
+                    else
                     {
-                        PlaceFlyingBuilding(x, y);
+                        Building building = null;
+                        var isBuilding = _flyingBuilding.gameObject.TryGetComponent<Building>(out building);
+                        if (_construction.BuyBuilding(building))
+                        {
+                            PlaceFlyingBuilding(x, y);
+                        }
                     }
                 }
             }
