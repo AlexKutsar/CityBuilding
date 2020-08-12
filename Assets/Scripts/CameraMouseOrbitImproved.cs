@@ -39,17 +39,18 @@ public class CameraMouseOrbitImproved : MonoBehaviour
         }*/
     }
 
-    void LateUpdate()
+    void Update()
     {
         if (target)
         {
             distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
 
-            RaycastHit hit;
+            /*RaycastHit hit;
             if (Physics.Linecast(target.position, transform.position, out hit))
             {
                 distance -= hit.distance;
             }
+            Debug.Log(hit.distance);*/
             if (Input.GetMouseButton(1))
             {
                 x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
@@ -60,7 +61,6 @@ public class CameraMouseOrbitImproved : MonoBehaviour
                 _rotation = Quaternion.Euler(y, x, 0);
             }
 
-            
             Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
             Vector3 position = _rotation * negDistance + target.position;
 
