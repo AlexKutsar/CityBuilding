@@ -29,6 +29,14 @@ public class BuildingsGrid : MonoBehaviour
 
         _flyingBuilding = Instantiate(buildindPrefab);
     }
+    public void StopPlacingBuilding()
+    {
+        if (_flyingBuilding != null)
+        {
+            Destroy(_flyingBuilding.gameObject);
+        }
+        _flyingBuilding = null;
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,14 +61,13 @@ public class BuildingsGrid : MonoBehaviour
 
                 _flyingBuilding.transform.position = new Vector3(x, 0, y);
                 _flyingBuilding.SetTransparent(available);
-                Building building = null;
-                var isBuilding = _flyingBuilding.gameObject.TryGetComponent<Building>(out building);
-                if (isBuilding && available && Input.GetMouseButtonDown(0))
+                if (available && Input.GetMouseButtonDown(0))
                 {
+                    Building building = null;
+                    var isBuilding = _flyingBuilding.gameObject.TryGetComponent<Building>(out building);
                     if (_construction.BuyBuilding(building))
                     {
                         PlaceFlyingBuilding(x, y);
-                        /// сделать бесконечную покупку _flyingBuilding = lastPrefab;
                     }
                 }
             }
@@ -81,7 +88,8 @@ public class BuildingsGrid : MonoBehaviour
     }
     public void PlaceFlyingBuilding(int placeX, int placeY)
     {
-        for(int x = 0; x < _flyingBuilding.Size.x; x++)
+        var buildindPrefab = _flyingBuilding;
+        for (int x = 0; x < _flyingBuilding.Size.x; x++)
         {
             for (int y = 0; y < _flyingBuilding.Size.y; y++)
             {
@@ -91,6 +99,7 @@ public class BuildingsGrid : MonoBehaviour
         _flyingBuilding.SetNormal();
         _flyingBuilding.positionOnGrid = new Vector2Int(placeX, placeY);
         _flyingBuilding = null;
+        _flyingBuilding = Instantiate(buildindPrefab);
     }
 
     public void RemoveObjectFromGrid(Vector2Int position, Vector2Int sizeObject)
