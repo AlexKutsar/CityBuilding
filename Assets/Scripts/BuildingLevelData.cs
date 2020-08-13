@@ -15,6 +15,7 @@ public class BuildingLevelData : ScriptableObject
 {
     [Header("Строительство")]
     [Tooltip("Список ресурсов для строительства")] public List<ResourceForConstruction> resourcesForConstruction = new List<ResourceForConstruction>();
+    [Tooltip("FBX здания")] public Mesh meshBuilding;
     [Tooltip("Время постройки")] public float TimeConstruction;
     
 
