@@ -103,6 +103,8 @@ public class BuildingsGrid : MonoBehaviour
     }
     private bool IsPlaceTakenByRoad(int placeX, int placeY)
     {
+        if (placeX < 0 || placeX >= GridSize.x) return false;
+        if (placeY < 0 || placeY >= GridSize.y) return false;
         if (_grid[placeX, placeY] == null) return false;
         Road road = null;
         var isRoad = _grid[placeX, placeY].gameObject.TryGetComponent<Road>(out road);
