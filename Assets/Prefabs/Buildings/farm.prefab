@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6809799373758266347}
+  - {fileID: 2718324380067203715}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63,6 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsResourceBuilding: 1
+  checkRoad: {fileID: 2718324380067203715}
+  checkRoadPosition: {x: 1, y: 1}
   LevelsData:
   - {fileID: 11400000, guid: 6bd1b72cc2f39104ea2568d77864f68b, type: 2}
   - {fileID: 11400000, guid: 94c7ff6cdc92f3e4d9b20fd12e809b75, type: 2}
@@ -72,6 +75,36 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb3a90f4cb1817d48a8c589e39f895b0, type: 2}
   - {fileID: 11400000, guid: aa70482f53be07043a56c2695eadc0ca, type: 2}
   _currentLevel: 0
+--- !u!1 &7608353483676340883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2718324380067203715}
+  m_Layer: 0
+  m_Name: checkRoad
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2718324380067203715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7608353483676340883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7012278273826295602}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6813488926033571091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4262151426414328, guid: 8f99e841dd173bf418e8d3d841ec7686, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4262151426414328, guid: 8f99e841dd173bf418e8d3d841ec7686, type: 3}
       propertyPath: m_LocalPosition.z
