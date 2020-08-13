@@ -50,28 +50,31 @@ public class BuildingsGrid : MonoBehaviour
             if(groundPlace.Raycast(ray , out float position))
             {
                 Vector3 worldPosition = ray.GetPoint(position);
-
                 int x = Mathf.RoundToInt(worldPosition.x);
                 int y = Mathf.RoundToInt(worldPosition.z);
+                _flyingBuilding.transform.position = new Vector3(x, 0, y);
 
                 bool available = true;
                 if (x < 0 || x > GridSize.x - _flyingBuilding.Size.x) available = false;
                 if (y < 0 || y > GridSize.y - _flyingBuilding.Size.y) available = false;
-
                 if (available && IsPlaceTaken(x, y)) available = false;
-
-                _flyingBuilding.transform.position = new Vector3(x, 0, y);
+                Building building = null;
+                var isBuilding = _flyingBuilding.gameObject.TryGetComponent<Building>(out building);
+                if (isBuilding && available && !IsPlaceTakenByRoad(Mathf.RoundToInt(building.checkRoad.position.x), Mathf.RoundToInt(building.checkRoad.position.z))) available = false; // можно добавить надпись для понятности
                 _flyingBuilding.SetTransparent(available);
                 if (available && Input.GetMouseButtonDown(0))
                 {
                     if (EventSystem.current.IsPointerOverGameObject()) return;
                     else
                     {
-                        Building building = null;
-                        var isBuilding = _flyingBuilding.gameObject.TryGetComponent<Building>(out building);
-                        if (_construction.BuyBuilding(building))
+                        Road road = null;
+                        var isRoad = _flyingBuilding.gameObject.TryGetComponent<Road>(out road);
+                        if (isBuilding)
                         {
-                            PlaceFlyingBuilding(x, y);
+                            if (_construction.BuyBuilding(building))
+                            {
+                                PlaceFlyingBuilding(x, y);
+                            }
                         }
                     }
                 }
@@ -90,6 +93,14 @@ public class BuildingsGrid : MonoBehaviour
             }
         }
         return false;
+    }
+    private bool IsPlaceTakenByRoad(int placeX, int placeY)
+    {
+        if (_grid[placeX, placeY] == null) return false;
+        Road road = null;
+        var isRoad = _grid[placeX, placeY].gameObject.TryGetComponent<Road>(out road);
+        if (road == null && !isRoad) return false;
+        return true;
     }
     public void PlaceFlyingBuilding(int placeX, int placeY)
     {
