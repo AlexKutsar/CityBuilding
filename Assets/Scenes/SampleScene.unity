@@ -367,7 +367,7 @@ MonoBehaviour:
         m_MethodName: StartPlacingBuilding
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3259527890544238644, guid: ba7d19783f9895249993998a5d8d4bcd,
+          m_ObjectArgument: {fileID: 2493321793275701321, guid: b02b2c57c8171bb42985d19cd55874fe,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: BuildindGizmos, Assembly-CSharp
           m_IntArgument: 0
@@ -561,7 +561,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Building1
+  m_Text: Farm
 --- !u!222 &621046301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -848,8 +848,8 @@ Canvas:
   m_GameObject: {fileID: 1106108881}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_RenderMode: 0
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -950,7 +950,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Building2
+  m_Text: House
 --- !u!222 &1194172199
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1122,7 +1122,7 @@ MonoBehaviour:
         m_MethodName: StartPlacingBuilding
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3955305317981060890, guid: 917e204a8397ef446a16d501db51cbb2,
+          m_ObjectArgument: {fileID: 7012278273826295603, guid: 55a3b14fd90b874468f6e38582f4e041,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: BuildindGizmos, Assembly-CSharp
           m_IntArgument: 0
