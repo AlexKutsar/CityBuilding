@@ -19,5 +19,5 @@ MonoBehaviour:
   - ResourceType: 1
     CostConstruction: 40
     CostDelete: 13
-  meshBuilding: {fileID: 4300000, guid: 63c62f1eacfa5c248b748fd46b253c20, type: 3}
+  meshBuilding: {fileID: 4300000, guid: 3046ffab76ef8a2459125ddd7502081b, type: 3}
   TimeConstruction: 20

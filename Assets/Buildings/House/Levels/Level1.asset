@@ -10,14 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 410900838feb5314f96a7578eda3d1d2, type: 3}
-  m_Name: Level6
+  m_Name: Level1
   m_EditorClassIdentifier: 
-  resourcesForConstruction:
-  - ResourceType: 0
-    CostConstruction: 30
-    CostDelete: 10
-  - ResourceType: 1
-    CostConstruction: 40
-    CostDelete: 13
-  meshBuilding: {fileID: 4300000, guid: 47714fade9030154ab0473afb784568c, type: 3}
-  TimeConstruction: 20
+  resourcesForConstruction: []
+  meshBuilding: {fileID: 4300000, guid: aa4bbc9f80f4e59468469077a836313b, type: 3}
+  TimeConstruction: 0
