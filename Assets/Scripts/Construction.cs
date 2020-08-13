@@ -32,6 +32,27 @@ public class Construction : MonoBehaviour
         }
         else return false;
     }
+    public bool BuyRoad(Road road)
+    {
+        if (CheckAllNeedResourseRoad(road))
+        {
+            TakeAwayResourcesRoad(road);
+            return true;
+        }
+        else return false;
+    }
+    // написать перегрузку методов
+    private bool CheckAllNeedResourseRoad(Road road)
+    {
+        _amountNeedResource = road.ResourcesForConstruction.Count;
+        for (int i = 0; i < _amountNeedResource; i++)
+        {
+            ResourceForConstruction resource = road.ResourcesForConstruction[i];
+            if (!CheckAmountResource(resource.ResourceType, resource.CostConstruction)) return false;
+        }
+        return true;
+    }
+
     private bool CheckAllNeedResourse(Building building)
     {
         _amountNeedResource = building.LevelsData[building.CurrentLevel].resourcesForConstruction.Count;
@@ -53,6 +74,15 @@ public class Construction : MonoBehaviour
         for (int i = 0; i < _amountNeedResource; i++)
         {
             ResourceForConstruction resource = building.LevelsData[building.CurrentLevel].resourcesForConstruction[i];
+            ResourcesData needRecource = _resources.resourcesData[_resources.FindIndexResourceInList(resource.ResourceType)];
+            needRecource.ChangeAmountResource.Invoke(resource.ResourceType, -resource.CostConstruction);
+        }
+    }
+    private void TakeAwayResourcesRoad(Road road)
+    {
+        for (int i = 0; i < _amountNeedResource; i++)
+        {
+            ResourceForConstruction resource = road.ResourcesForConstruction[i];
             ResourcesData needRecource = _resources.resourcesData[_resources.FindIndexResourceInList(resource.ResourceType)];
             needRecource.ChangeAmountResource.Invoke(resource.ResourceType, -resource.CostConstruction);
         }

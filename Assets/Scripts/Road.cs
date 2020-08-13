@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
+    public List<ResourceForConstruction> ResourcesForConstruction = new List<ResourceForConstruction>();
     [SerializeField] private BuildindGizmos _buildindGizmos = null;
+    
     // Start is called before the first frame update
     void Awake()
     {

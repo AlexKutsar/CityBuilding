@@ -64,7 +64,7 @@ public class BuildingsGrid : MonoBehaviour
                 _flyingBuilding.SetTransparent(available);
                 if (available && Input.GetMouseButtonDown(0))
                 {
-                    if (EventSystem.current.IsPointerOverGameObject()) return;
+                    if (EventSystem.current.IsPointerOverGameObject()) return; // чтобы не кликать сквозь кнопку
                     else
                     {
                         Road road = null;
@@ -72,6 +72,13 @@ public class BuildingsGrid : MonoBehaviour
                         if (isBuilding)
                         {
                             if (_construction.BuyBuilding(building))
+                            {
+                                PlaceFlyingBuilding(x, y);
+                            }
+                        }
+                        if (isRoad)
+                        {
+                            if (_construction.BuyRoad(road))
                             {
                                 PlaceFlyingBuilding(x, y);
                             }

@@ -45,6 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b05fbc1e389be4e90f4bc31645ed9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResourcesForConstruction:
+  - ResourceType: 0
+    CostConstruction: 1
+    CostDelete: 0
+  - ResourceType: 1
+    CostConstruction: 2
+    CostDelete: 0
   _buildindGizmos: {fileID: 1320550658117461834}
 --- !u!114 &1320550658117461834
 MonoBehaviour:
