@@ -103,6 +103,7 @@ public class BuildingsGrid : MonoBehaviour
         }
         _flyingBuilding.SetNormal();
         _flyingBuilding.positionOnGrid = new Vector2Int(placeX, placeY);
+        _flyingBuilding.name = "building:" + placeX + "," + placeY;
         _flyingBuilding = null;
         _flyingBuilding = Instantiate(buildindPrefab);
     }
@@ -116,5 +117,10 @@ public class BuildingsGrid : MonoBehaviour
                 _grid[position.x + x, position.y + y] = null;
             }
         }
+    }
+    public void TurnBuilding()
+    {
+        if (_flyingBuilding == null) return;
+        _flyingBuilding.gameObject.transform.Rotate(Vector3.up * 90);
     }
 }
