@@ -85,6 +85,7 @@ public class Construction : MonoBehaviour
             ResourceForConstruction resource = road.ResourcesForConstruction[i];
             ResourcesData needRecource = _resources.resourcesData[_resources.FindIndexResourceInList(resource.ResourceType)];
             needRecource.ChangeAmountResource.Invoke(resource.ResourceType, -resource.CostConstruction);
+            
         }
     }
 }

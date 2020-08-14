@@ -19,6 +19,7 @@ public class ResourcesData
 }
 public class Resources : MonoBehaviour
 {
+    [SerializeField] private UIResourse UIResourse = null;
     public List<ResourcesData> resourcesData = new List<ResourcesData>();
 
     //public UnityAction<ResourceType, int> ChangeAmountResource;
@@ -32,6 +33,8 @@ public class Resources : MonoBehaviour
         else if (sum <= 0) amountCurrentResource = 0;
         else amountCurrentResource += value;
         resourcesData[indexResource].currentValue = amountCurrentResource;
+        UIResourse.UpdateText(indexResource, amountCurrentResource);
+
     }
 
     public int FindIndexResourceInList(ResourceType resourceType)
@@ -54,6 +57,7 @@ public class Resources : MonoBehaviour
         for (int i = 0; i < resourcesData.Count; i++)
         {
             resourcesData[i].ChangeAmountResource += СhangeCurrentResourсe;
+            UIResourse.UpdateText(i, resourcesData[i].currentValue);
         }
     }
 

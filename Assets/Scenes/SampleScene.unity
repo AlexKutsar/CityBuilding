@@ -734,6 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8064083ae9df44eaf55a8da68da000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIResourse: {fileID: 1106108886}
   resourcesData:
   - resourceType: 0
     currentValue: 20
@@ -1349,6 +1350,7 @@ GameObject:
   - component: {fileID: 1106108884}
   - component: {fileID: 1106108883}
   - component: {fileID: 1106108882}
+  - component: {fileID: 1106108886}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1441,6 +1443,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1106108886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106108881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f732c169e77de4ba04ce9f02d5430f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextsResourses:
+  - {fileID: 839240676}
+  - {fileID: 877393941}
+  - {fileID: 1826294434}
 --- !u!1 &1194172196
 GameObject:
   m_ObjectHideFlags: 0
