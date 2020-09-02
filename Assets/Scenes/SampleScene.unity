@@ -151,7 +151,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &45992792
@@ -706,7 +706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4102a5ab2e967545aa22a7da6dbe57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSize: {x: 10, y: 10}
   _construction: {fileID: 535928015}
 --- !u!4 &535928013
 Transform:
